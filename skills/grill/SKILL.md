@@ -8,4 +8,3 @@ Ask me questions about the following until we reach a shared understanding, reso
 If a question can be answered by exploring the codebase, explore the codebase instead.
 
 Start by thinking of what to ask, then iteratively ask single questions until we reach a shared understanding.
-

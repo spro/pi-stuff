@@ -13,12 +13,12 @@ Make these changes in the target repository:
 
 1. Install `prettier` as a dev dependency
 2. Add a Prettier config with:
-   - `tabWidth: 4`
-   - `useTabs: false`
-   - `trailingComma: "all"`
-   - `semi: false`
+    - `tabWidth: 4`
+    - `useTabs: false`
+    - `trailingComma: "all"`
+    - `semi: false`
 3. Add a `format` script to `package.json` that runs Prettier in write mode
-4. Add a `check` script to `package.json` that runs `format` and then a TypeScript type check
+4. Add a `check` script to `package.json` that runs `format` and eslint if installed and/or TypeScript type check
 
 ## Workflow
 
@@ -29,20 +29,20 @@ Before changing anything:
 - Read `package.json`
 - Check for a TypeScript config such as `tsconfig.json`
 - Detect the package manager from lockfiles:
-  - `package-lock.json` → npm
-  - `pnpm-lock.yaml` → pnpm
-  - `yarn.lock` → yarn
-  - `bun.lock` or `bun.lockb` → bun
+    - `package-lock.json` → npm
+    - `pnpm-lock.yaml` → pnpm
+    - `yarn.lock` → yarn
+    - `bun.lock` or `bun.lockb` → bun
 - Check whether a Prettier config already exists:
-  - `.prettierrc`
-  - `.prettierrc.json`
-  - `.prettierrc.yml`
-  - `.prettierrc.yaml`
-  - `.prettierrc.js`
-  - `.prettierrc.cjs`
-  - `prettier.config.js`
-  - `prettier.config.cjs`
-  - `package.json` `prettier` field
+    - `.prettierrc`
+    - `.prettierrc.json`
+    - `.prettierrc.yml`
+    - `.prettierrc.yaml`
+    - `.prettierrc.js`
+    - `.prettierrc.cjs`
+    - `prettier.config.js`
+    - `prettier.config.cjs`
+    - `package.json` `prettier` field
 
 If the repo does not appear to be a TypeScript repo, stop and ask the user before continuing.
 
