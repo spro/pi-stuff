@@ -6,6 +6,7 @@ I'm experimenting with Pi and extensions. Some are copied from https://github.co
 
 - `context.ts` — Shows loaded context.
 - `files.ts` — Browse and open files.
+- `project-search.ts` — Adds an `rg`-backed `project_search` tool for current-project search.
 - `session-breakdown.ts` — Shows session stats.
 - `test.ts` — Scratch extension experiments.
 

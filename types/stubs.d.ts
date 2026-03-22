@@ -148,5 +148,9 @@ declare module "@sinclair/typebox" {
     export const Type: {
         Object(...args: any[]): any
         String(...args: any[]): any
+        Boolean(...args: any[]): any
+        Number(...args: any[]): any
+        Integer(...args: any[]): any
+        Optional(value: any): any
     }
 }
