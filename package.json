@@ -1,7 +1,7 @@
 {
     "name": "pi-stuff",
-    "version": "1.0.0",
-    "description": "",
+    "version": "0.1.0",
+    "description": "Custom Pi extensions, commands, and skills.",
     "homepage": "https://github.com/spro/pi-stuff#readme",
     "bugs": {
         "url": "https://github.com/spro/pi-stuff/issues"
@@ -13,11 +13,12 @@
     "license": "ISC",
     "author": "",
     "type": "commonjs",
-    "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
         "format": "prettier . --write",
-        "check": "npm run format && tsc --noEmit"
+        "format:check": "prettier . --check",
+        "typecheck": "tsc --noEmit",
+        "check": "npm run format && npm run typecheck",
+        "convert-session": "node scripts/convert-session-format.js"
     },
     "dependencies": {
         "typescript": "^5.9.3"

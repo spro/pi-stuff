@@ -27,11 +27,11 @@ Read the files that define the current app entrypoints and styling. For example:
 
 - `package.json`
 - Framework entry files such as:
-  - Next.js App Router: `app/page.*`, `app/layout.*`, `app/globals.css`
-  - Next.js Pages Router: `pages/index.*`, `pages/_app.*`
-  - Vite React: `src/App.*`, `src/main.*`, `src/index.css`, `src/App.css`
-  - Vite Vue: `src/App.vue`, `src/main.*`, relevant CSS files
-  - Vite Svelte: `src/App.svelte`, `src/app.css`, `src/main.*`
+    - Next.js App Router: `app/page.*`, `app/layout.*`, `app/globals.css`
+    - Next.js Pages Router: `pages/index.*`, `pages/_app.*`
+    - Vite React: `src/App.*`, `src/main.*`, `src/index.css`, `src/App.css`
+    - Vite Vue: `src/App.vue`, `src/main.*`, relevant CSS files
+    - Vite Svelte: `src/App.svelte`, `src/app.css`, `src/main.*`
 - Any obvious template-only assets and components referenced by those files
 
 Also inspect the directory tree for template artifacts such as:
@@ -92,10 +92,10 @@ After edits:
 
 - read back changed files to confirm them
 - run the project checks that make sense for the repo if available, such as:
-  - install-free validation commands already present in the repo
-  - `npm run lint`
-  - `npm run check`
-  - `npm run build`
+    - install-free validation commands already present in the repo
+    - `npm run lint`
+    - `npm run check`
+    - `npm run build`
 - if there is no obvious validation script, at least ensure imports and file references are internally consistent
 
 Report any failures clearly.
