@@ -452,9 +452,9 @@ const resolveTitleModel = async (ctx: ExtensionContext) => {
                 parsed.modelId,
             )
             if (model) {
-                const apiKey = await ctx.modelRegistry.getApiKey(model)
-                if (apiKey) {
-                    return { model, apiKey }
+                const auth = await ctx.modelRegistry.getApiKeyAndHeaders(model)
+                if (auth.ok && auth.apiKey) {
+                    return { model, apiKey: auth.apiKey, headers: auth.headers }
                 }
             }
         }
@@ -464,12 +464,12 @@ const resolveTitleModel = async (ctx: ExtensionContext) => {
         return null
     }
 
-    const apiKey = await ctx.modelRegistry.getApiKey(ctx.model)
-    if (!apiKey) {
+    const auth = await ctx.modelRegistry.getApiKeyAndHeaders(ctx.model)
+    if (!auth.ok || !auth.apiKey) {
         return null
     }
 
-    return { model: ctx.model, apiKey }
+    return { model: ctx.model, apiKey: auth.apiKey, headers: auth.headers }
 }
 
 const generateTitle = async (
@@ -505,6 +505,7 @@ const generateTitle = async (
             },
             {
                 apiKey: resolved.apiKey,
+                headers: resolved.headers,
                 maxTokens: 24,
             },
         )
@@ -545,7 +546,6 @@ export default function sessionTitleExtension(pi: ExtensionAPI) {
     }
 
     pi.on("session_start", restoreForSession)
-    pi.on("session_switch", restoreForSession)
     pi.on("session_before_switch", async (_event, ctx) => {
         await syncCurrentTitle(pi, ctx)
     })

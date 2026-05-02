@@ -151,8 +151,8 @@ export default function (pi: ExtensionAPI) {
                 return
             }
 
-            const apiKey = await ctx.modelRegistry.getApiKey(model)
-            if (!apiKey) {
+            const auth = await ctx.modelRegistry.getApiKeyAndHeaders(model)
+            if (!auth.ok || !auth.apiKey) {
                 ctx.ui.notify(
                     `No auth available for ${model.provider}/${model.id}`,
                     "warning",
@@ -179,7 +179,7 @@ export default function (pi: ExtensionAPI) {
                         },
                     ],
                 },
-                { apiKey },
+                { apiKey: auth.apiKey, headers: auth.headers },
             )
 
             const summary = response.content
